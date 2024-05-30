@@ -10,7 +10,6 @@ public class DijkstraSearch<V> implements Search<V> {
         this.startVertex = startVertex;
         performDijkstra(graph, startVertex);
     }
-
     private void performDijkstra(WeightedGraph<V> graph, V startVertex) {
         PriorityQueue<V> priorityQueue = new PriorityQueue<>(Comparator.comparing(distances::get));  // Priority queue for vertices based on their distances
         distances.put(startVertex, 0.0);  // Initialize distance to the start vertex as 0
