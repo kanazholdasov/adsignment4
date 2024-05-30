@@ -1,0 +1,51 @@
+# Graph Search Algorithms Demo
+
+This Java application demonstrates the usage of Dijkstra's Algorithm and Breadth-First Search (BFS) on a weighted graph representing cities and their distances. The `Main` class serves as an entry point for running the demonstrations.
+
+## Getting Started
+
+To run the demo, ensure you have Java Development Kit (JDK) installed on your machine.
+
+1. Clone or download the repository to your local machine.
+2. Open the project in your preferred Java Integrated Development Environment (IDE).
+3. Run the `Main` class.
+
+## Features
+
+- **Dijkstra's Algorithm**: Finds the shortest path between two cities based on the distances provided.
+- **Breadth-First Search (BFS)**: Finds the path between two cities using BFS traversal.
+
+## Usage
+
+1. Create a `WeightedGraph<String>` object representing the cities and their distances.
+2. Populate the graph using the `fillWithWeights` method, adding cities and their corresponding distances.
+3. Initialize a `DijkstraSearch<String>` or `BreadthFirstSearch<String>` object with the `WeightedGraph` and the starting city.
+4. Call the `outputPath` method to print the path from the starting city to the target city.
+
+## Example
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        WeightedGraph<String> weightedGraph = new WeightedGraph<>(false);
+        fillWithWeights(weightedGraph);
+
+        System.out.println("Dijkstra:");
+        Search<String> djk = new DijkstraSearch<>(weightedGraph, "Almaty");
+        outputPath(djk, "Kyzylorda");
+
+        System.out.println("--------------------------------");
+
+        System.out.println("BFS:");
+        Search<String> bfs = new BreadthFirstSearch<>(weightedGraph, "Almaty");
+        outputPath(bfs, "Kyzylorda");
+    }
+
+    public static void fillWithWeights(WeightedGraph<String> graph) {
+        // Add cities and distances to the graph
+    }
+
+    public static void outputPath(Search<String> search, String key) {
+        // Print the path returned by the search algorithm
+    }
+}
